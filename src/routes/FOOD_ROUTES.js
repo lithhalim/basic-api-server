@@ -11,9 +11,9 @@ const deletepeople=require("../controllers/food/FOOD_DELETE")
 
 
 //ALL ROUTE FOR POEPLE ELEMENT
-router.get('/people',getAllPeople)
-router.post('/people',createnewpeople)
-router.put("/people/:id",updatepeople)
-router.delete("/people/:id",deletepeople)
+router.get('/food',getAllPeople)
+router.post('/food',createnewpeople)
+router.put("/food/:id",updatepeople)
+router.delete("/food/:id",deletepeople)
 
 module.exports=router;

@@ -31,19 +31,19 @@ describe("",()=>{
     })
     test ("can add a person ",async()=>{
         let thepost={name:"lith",mage:"500"}
-        const res=await (await mockRequest.post('/project/people'))
+        const res=await (await mockRequest.post('/food'))
         expect(res.status).toBe(201);
     })
     test('can read all people ',async()=>{
-        const res =await mockRequest.get("/project/people");
+        const res =await mockRequest.get("/food");
         expect(res.status).toBe(200)
     })
     test('can read update people ',async()=>{
-        const res =await mockRequest.put("/project/people/8");
+        const res =await mockRequest.put("/food/8");
         expect(res.status).toBe(201)
     })
     test('can read delete people ',async()=>{
-        const res =await mockRequest.delete("/project/people/7");
+        const res =await mockRequest.delete("/food/7");
         expect(res.status).toBe(204)
     })   
 
