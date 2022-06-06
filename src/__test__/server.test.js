@@ -34,15 +34,19 @@ describe("",()=>{
         const res=await (await mockRequest.post('/food'))
         expect(res.status).toBe(201);
     })
-    test('can read all people ',async()=>{
+    test('can read all food ',async()=>{
         const res =await mockRequest.get("/food");
         expect(res.status).toBe(200)
     })
-    test('can read update people ',async()=>{
+    test('can read update food ',async()=>{
         const res =await mockRequest.put("/food/8");
         expect(res.status).toBe(201)
     })
-    test('can read delete people ',async()=>{
+    test('get specific food type ',async()=>{
+        const res =await mockRequest.get("/food/8");
+        expect(res.status).toBe(200)
+    })
+    test('can read delete food ',async()=>{
         const res =await mockRequest.delete("/food/7");
         expect(res.status).toBe(204)
     })   
