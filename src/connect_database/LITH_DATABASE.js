@@ -10,10 +10,10 @@ if(process.env.NODE_ENV === "test"){//CHECK IF USER WANT TEST INVIROMENT USE IN 
   POSTGRES_URL="sqlite:memory";
 }
 else if(process.env.NODE_ENV === "production"){
-  POSTGRES_URL=process.env.DATABASE_HEROKU
+  POSTGRES_URL=process.env.DATABASE_URL
 }
 else{//IF THE USER NEED PORDUCTION OR DEVELOPMENT USE THE MAIN DATABASE 
-POSTGRES_URL=process.env.DATABASE_URL
+POSTGRES_URL=process.env.DATABASE_URL1
 }
 
 
