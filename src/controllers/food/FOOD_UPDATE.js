@@ -1,4 +1,4 @@
-const FOOD_MODEL=require("../../modul/PEOPLE_MODEL");//SPECIFIC SCHEMA 
+const FOOD_MODEL=require("../../modul/FOOD_MODEL");//SPECIFIC SCHEMA 
 
 module.exports=async(req,res)=>{
     const id=req.params.id;

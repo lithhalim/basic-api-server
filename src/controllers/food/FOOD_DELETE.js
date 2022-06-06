@@ -1,4 +1,4 @@
-const FOOD_MODEL=require("../../modul/PEOPLE_MODEL");//USE SCHEMA CALLED USERME
+const FOOD_MODEL=require("../../modul/FOOD_MODEL");//USE SCHEMA CALLED USERME
 
 module.exports=async(req,res)=>{
     const id=(parseInt(req.params.id))
