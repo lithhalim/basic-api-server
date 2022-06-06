@@ -3,10 +3,10 @@ const router=express.Router();//USE ROUTER FOR THESE PAGE
 
 
 //ALL FUNCTION FOR PEOPLE MIDDULER
-const updatepeople=require("../controllers/people/PEOPLE_UPDATE")
-const getAllPeople=require("../controllers/people/PEOPLE_GET")
-const createnewpeople=require("../controllers/people/PEOPLE_CREATE")
-const deletepeople=require("../controllers/people/PEOPLE_DELETE")
+const updatepeople=require("../controllers/food/FOOD_UPDATE")
+const getAllPeople=require("../controllers/food/FOOD_GET")
+const createnewpeople=require("../controllers/food/FOOD_CREATE")
+const deletepeople=require("../controllers/food/FOOD_DELETE")
 
 
 

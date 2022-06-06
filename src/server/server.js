@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const LITH_DATABASE=require("../connect_database/LITH_DATABASE")
 
-const PEOPLE_ROUTE=require("../routes/PEOPLE_ROUTE")
+const FOOD_ROUTES=require("../routes/FOOD_ROUTES")
 
 //IMPORT HANDELLER 
 const pageNotFound=require("../handeller/404");
@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())//USE TO ACCEPT JSON FILE ARE REQUESTET
 
 
-//USER EXPRESS ROUTER 
-app.use('/project',PEOPLE_ROUTE)//USE THE ROUTE FOR PEOPLE FOR ALL PROJECT ROUTE
+//USER EXPRESS ROUTER MIDDELWARE ROUTES
+app.use('/',FOOD_ROUTES)//USE THE ROUTE FOR PEOPLE FOR ALL PROJECT ROUTE
 
   
 
 //ALL ROUTE ELEMENT
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.send('Hello World!')
 }
 )
