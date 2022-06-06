@@ -29,7 +29,7 @@ let sequelizeOption=process.env.NODE_ENV==="production"?{//ATT PRODUCTION SIDE H
 
 
 
-const DATABASE_LITH= new Sequelize(POSTGRES_URL,{
+const DATABASE_LITH= new Sequelize({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 })
