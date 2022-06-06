@@ -29,10 +29,7 @@ let sequelizeOption=process.env.NODE_ENV==="production"?{//ATT PRODUCTION SIDE H
 
 
 
-const DATABASE_LITH= new Sequelize({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-})
+const DATABASE_LITH= new Sequelize(POSTGRES_URL,sequelizeOption)
 module.exports=DATABASE_LITH//EXPORT DATABASE WITH NAME LITH FOR DEFINE ANY DATABASE
 
 
