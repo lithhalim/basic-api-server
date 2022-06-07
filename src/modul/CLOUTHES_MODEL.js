@@ -1,12 +1,12 @@
 "use strict";
 const CLOUTHES_MODEL = (sequelize, DataTypes) =>
     sequelize.define("clothes", {
-        clothesName: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
 
-        clothesPrice: {
+        price: {
             type: DataTypes.STRING 
         },
     });
