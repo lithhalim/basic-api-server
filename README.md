@@ -1,7 +1,9 @@
 # basic-api-server
 
-## 🚀 heroku link
-https://basic-api-server3.herokuapp.com/food
+## 🚀 heroku link food
+https://project-api1.herokuapp.com/food
+## 🚀 heroku link clothes
+https://project-api1.herokuapp.com/clothes
 ## 🚀 project link
 https://github.com/lithhalim/basic-api-server
 ## 🚀 pull request
@@ -11,12 +13,10 @@ https://github.com/lithhalim/basic-api-server/actions
 
 ## How To Use
 - add new type food
-![](./assest/create.png)
-- delete one food element
-![](./assest/delete.png)
-- update one element food
-![](./assest/update.png)
-- npm test check
+![](./assest/food.png)
+- and new  type clothes 
+![](./assest/clothes1.png)
+- test
 ![](./assest/test1.png)
 
 
