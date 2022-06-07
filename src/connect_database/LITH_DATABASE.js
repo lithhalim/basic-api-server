@@ -1,11 +1,12 @@
-//CONNECT WITH THE DATABASE (YOU CAN DEFINE MORE THAN ONNE DATABASE)
-const Sequelize=require("sequelize")
-require('dotenv').config()
-
-
-//CONNECTION THE DATABASE (postgres://username:password@localhost:5432/database)
-const POSTGRES_URL=process.env.DATABASE_URL
-
+"use strict";
+require('dotenv').config();
+//CONNECTION WITH DATABASE AND SELECT THE ENVIROMENT
+const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
+//REQUIRE THE SEQULIZE
+const { Sequelize, DataTypes } = require("sequelize");
+//IMPORT ALL MODEL I HAVE
+const CLOUTHES_MODEL=require("../modul/CLOUTHES_MODEL")
+const FOOD_MODEL=require("../modul/FOOD_MODEL")
 
 
 //USE TO RUN THE DATABASE ON HEROKKU TO MAKE CONFIGRATION 
@@ -21,8 +22,13 @@ let sequelizeOptions =
         } : {};
 
 //CREATION THE DATABASE WILL USE ON PROGRAME
-const DATABASE_LITH= new Sequelize(POSTGRES_URL,sequelizeOptions)
-//EXPORT DATABASE WITH NAME LITH FOR DEFINE ANY DATABASE
-module.exports=DATABASE_LITH
+let LITH_DATABASE = new Sequelize(POSTGRES_URI, sequelizeOptions);
+
+//EXPORT ALL MODEL TO CAN USED EVERY WHERE
+module.exports = {
+    LITH_DATABASE: LITH_DATABASE,
+    FOOD_MODEL: FOOD_MODEL(LITH_DATABASE, DataTypes),
+    CLOUTHES_MODEL: CLOUTHES_MODEL(LITH_DATABASE, DataTypes)
+};
 
 

@@ -1,4 +1,4 @@
-const FOOD_MODEL=require("../../modul/FOOD_MODEL");//SPECIFIC SCHEMA 
+const {FOOD_MODEL}=require("../../connect_database/LITH_DATABASE");//USE SCHEMA CALLED USERME
 
 module.exports=async(req,res)=>{
     const id=req.params.id;

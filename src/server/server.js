@@ -2,10 +2,12 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-const LITH_DATABASE=require("../connect_database/LITH_DATABASE")
+const {LITH_DATABASE}=require("../connect_database/LITH_DATABASE")
 
+
+//ALL MIDDELWARE ROUTES I USE
 const FOOD_ROUTES=require("../routes/FOOD_ROUTES")
-
+const CLOUTHES_ROUTER=require("../routes/CLOTHES_ROUTES")
 //IMPORT HANDELLER 
 const pageNotFound=require("../handeller/404");
 const errorHaandeler=require("../handeller/500")
@@ -18,7 +20,7 @@ app.use(bodyParser.json())//USE TO ACCEPT JSON FILE ARE REQUESTET
 
 //USER EXPRESS ROUTER MIDDELWARE ROUTES
 app.use('/',FOOD_ROUTES)//USE THE ROUTE FOR PEOPLE FOR ALL PROJECT ROUTE
-
+app.use("/",CLOUTHES_ROUTER)//USE ROUTE FOR CLOTHES FOR ALL PROJECT
   
 
 //ALL ROUTE ELEMENT
