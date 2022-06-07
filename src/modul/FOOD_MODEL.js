@@ -1,10 +1,6 @@
-const {  DataTypes } = require('sequelize');//IMPORT PROPERTY FOR SCHEMA 
-const LITH_DATABASE=require("../connect_database/LITH_DATABASE");//IMPORT DATABASE FOR SCEMA DEFINE
-
-
-
+"use strict";
 //CREATE THE SCHEMA AND CONNECTED WITH SPECIFIC DATABASE
-const FOOD_MODEL = LITH_DATABASE.define('osamas', {//CREATE THE TABLE
+const FOOD_MODEL = (sequelize, DataTypes)=>sequelize.define('osamas', {//CREATE THE TABLE
     // Model attributes are defined here
     name: {
       type: DataTypes.STRING,//DATA TYPE OF COLUMN
@@ -16,6 +12,7 @@ const FOOD_MODEL = LITH_DATABASE.define('osamas', {//CREATE THE TABLE
   },{
     timestamps:false // *TIMESTAMP*USE TO CREATE CREATEDAT UPDATED AD TIME WHEN YOU DOING
   });
+
 
 module.exports=FOOD_MODEL
   

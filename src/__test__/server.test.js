@@ -1,59 +1,77 @@
 const {app}=require("../server/server")
 const supertest=require("supertest")
 const mockRequest=supertest(app)//TO MAKE FACK RUN FOR THE FUNCTION
-const sqlite3 = require('sqlite3').verbose();//USE TO RUN DATABASE ON MEMORY
+const { LITH_DATABASE } = require('../connect_database/LITH_DATABASE');
+
+beforeAll(async () => {
+    await LITH_DATABASE.sync();
+});
 
 
 
-//CREATE THE DATABASE 
-const db = new sqlite3.Database(':memory:');
+describe('Web server', () => {
+    // ALL CHECK FOR FOOD SECTION 
+    test('Check For Undifine Route', async () => {
+        const response = await mockRequest.get('/foooood');
+        expect(response.status).toBe(404);
+    });
+    test('add new type of food', async () => {
+        const response = await mockRequest.post('/food').send({
+            name: 'kfc',
+            type: 'checken'
+        });
+        expect(response.status).toBe(201);
+    });
 
-//USE TO RUN SEULIZE ON SEQUL:LITE
-db.serialize(() => {
-    db.run("CREATE TABLE lorem (info TEXT)");
+    test('Get All Data For Food', async () => {
+        const response = await mockRequest.get('/food');
+        expect(response.status).toBe(200);
 
-    const stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-    for (let i = 0; i < 10; i++) {
-        stmt.run("Ipsum " + i);
-    }
-    stmt.finalize();
+    });
+    // test if can delete a person
+    test('Delete Specific Type Of Food', async () => {
+        const response = await mockRequest.delete('/food/1');
+        expect(response.status).toBe(204);
+    });
+            // test if can update a person
+    test('can update a record', async () => {
+        const response = await mockRequest.put('/food/1');
+        expect(response.status).toBe(201);
+    });
 
-    db.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
-        console.log(row.id + ": " + row.info);
+    
+    //ALL CHECK FOR CLOTHES SECTION
+    test('404 Connction For Clothes', async () => {
+        const response = await mockRequest.get('/clooooth');
+        expect(response.status).toBe(404);
+    });
+
+    test('Add new Element For Clothes', async () => {
+        const response = await mockRequest.post('/clothes').send({
+            clothesName: 'scuret',
+            clothesPrice: '120'
+        });
+        expect(response.status).toBe(201);
+    });
+
+
+    it('can get all clothes', async () => {
+        const response = await mockRequest.get('/clothes');
+        expect(response.status).toBe(200);
+
+    });
+
+
+
+    test('Delete On Element Of Clothes', async () => {
+        const response = await mockRequest.delete('/clothes/1');
+        expect(response.status).toBe(204);
     });
 });
 
 
-describe("",()=>{
-    test("response like 404 for invalied rotes ",async()=>{
-        const res=await mockRequest.get("/bababa");
-        expect(res.status).toBe(404);
-    })
-    test ("can add a person ",async()=>{
-        let thepost={name:"lith",mage:"500"}
-        const res=await (await mockRequest.post('/food'))
-        expect(res.status).toBe(201);
-    })
-    test('can read all food ',async()=>{
-        const res =await mockRequest.get("/food");
-        expect(res.status).toBe(200)
-    })
-    test('can read update food ',async()=>{
-        const res =await mockRequest.put("/food/8");
-        expect(res.status).toBe(201)
-    })
-    test('get specific food type ',async()=>{
-        const res =await mockRequest.get("/food/8");
-        expect(res.status).toBe(200)
-    })
-    test('can read delete food ',async()=>{
-        const res =await mockRequest.delete("/food/7");
-        expect(res.status).toBe(204)
-    })   
-
-}) 
-
-
 
 //CLOSS THE MEMORY DATABASE AFTER CHECK
-db.close();
+afterAll(async () => {
+    await LITH_DATABASE.drop();
+});
