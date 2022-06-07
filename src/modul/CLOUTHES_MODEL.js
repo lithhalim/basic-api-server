@@ -9,6 +9,9 @@ const CLOUTHES_MODEL = (sequelize, DataTypes) =>
         price: {
             type: DataTypes.STRING 
         },
-    });
+    }
+    ,{
+        timestamps:false // *TIMESTAMP*USE TO CREATE CREATEDAT UPDATED AD TIME WHEN YOU DOING
+      });
 
 module.exports = CLOUTHES_MODEL;
