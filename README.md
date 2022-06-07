@@ -1,9 +1,9 @@
 # basic-api-server
 
 ## 🚀 heroku link food
-https://project-api1.herokuapp.com/food
+https://project-api1.herokuapp.com/api/v1/food
 ## 🚀 heroku link clothes
-https://project-api1.herokuapp.com/clothes
+https://project-api1.herokuapp.com/api/v1/clothes
 ## 🚀 project link
 https://github.com/lithhalim/basic-api-server
 ## 🚀 pull request
