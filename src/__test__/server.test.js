@@ -48,8 +48,8 @@ describe('Web server', () => {
 
     test('Add new Element For Clothes', async () => {
         const response = await mockRequest.post('/clothes').send({
-            clothesName: 'scuret',
-            clothesPrice: '120'
+            name: 'scuret',
+            price: '120'
         });
         expect(response.status).toBe(201);
     });
