@@ -2,8 +2,5 @@ const {FOOD_MODEL}=require("../../connect_database/LITH_DATABASE");//USE SCHEMA 
 
 
 module.exports=async(req,res)=>{
-    const allpeople=await FOOD_MODEL.findAll()
-    res.status(200)
-    res.json(allpeople)
-
-}
+    let custmor=await FOOD_MODEL.reade();
+    res.status(200).json(custmor); }
