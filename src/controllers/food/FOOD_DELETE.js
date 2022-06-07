@@ -1,13 +1,9 @@
 const {FOOD_MODEL}=require("../../connect_database/LITH_DATABASE");//USE SCHEMA CALLED USERME
 
 module.exports=async(req,res)=>{
-    const id=(parseInt(req.params.id))
-    await FOOD_MODEL.destroy({
-        where:{
-            id
-        }
-    })
+    const custmerid=(parseInt(req.params.id))
+    let ddeletCustmer=await FOOD_MODEL.delete(custmerid)
     res.status(204)
-    res.send("delete")
+    res.send("sucsses")
 
 }
